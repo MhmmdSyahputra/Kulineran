@@ -68,7 +68,7 @@ export default {
     },
     searchFood() {
       axios
-        .get("http://localhost:3000/products?q=" + this.search)
+        .get("https://my-json-server.typicode.com/MhmmdSyahputra/api-kulineran/products?q=" + this.search)
         .then((response) => this.setProducts(response.data))
         .catch((error) => console.log(error));
     },
@@ -76,7 +76,7 @@ export default {
 
   mounted() {
     axios
-      .get("http://localhost:3000/products")
+      .get("https://my-json-server.typicode.com/MhmmdSyahputra/api-kulineran/products")
       .then((response) => this.setProducts(response.data))
       .catch((error) => console.log(error));
   },

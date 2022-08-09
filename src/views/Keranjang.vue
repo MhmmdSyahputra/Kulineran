@@ -155,7 +155,7 @@ export default {
 
     hapusKeranjang(id) {
       axios
-        .delete("http://localhost:3000/keranjangs/" + id)
+        .delete("https://my-json-server.typicode.com/MhmmdSyahputra/api-kulineran/keranjangs/" + id)
         .then(() => {
           this.$toast.error("Sukses Hapus Keranjang.", {
             type: "error",
@@ -164,7 +164,7 @@ export default {
             dismissible: true,
           });
           axios
-            .get("http://localhost:3000/keranjangs")
+            .get("https://my-json-server.typicode.com/MhmmdSyahputra/api-kulineran/keranjangs")
             .then((response) => this.setKeranjangs(response.data))
             .catch((error) => console.log(error));
         })
@@ -174,12 +174,12 @@ export default {
       if (this.pesan.nama && this.pesan.Nomeja) {
         this.pesan.keranjangs = this.keranjangs;
         axios
-          .post("http://localhost:3000/pesanans/", this.pesan)
+          .post("https://my-json-server.typicode.com/MhmmdSyahputra/api-kulineran/pesanans/", this.pesan)
           .then(() => {
             // Hapus Semua keranjang
             this.keranjangs.map(function (item) {
               return axios
-                .delete("http://localhost:3000/keranjangs/" + item.id)
+                .delete("https://my-json-server.typicode.com/MhmmdSyahputra/api-kulineran/keranjangs/" + item.id)
                 .catch((err) => console.log(err));
             });
 
@@ -204,7 +204,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:3000/keranjangs")
+      .get("https://my-json-server.typicode.com/MhmmdSyahputra/api-kulineran/keranjangs")
       .then((response) => this.setKeranjangs(response.data))
       .catch((error) => console.log(error));
   },
